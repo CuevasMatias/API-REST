@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.util.List;
 
 public class AgregarEmprendimiento {
 
@@ -18,7 +19,7 @@ public class AgregarEmprendimiento {
     private Double objetivo;
     private boolean publicado;
     private String urls;
-
+    private List<Long> tags;
     @NotNull
     @Positive
     @JsonProperty(value = "id_usuario")
@@ -72,6 +73,14 @@ public class AgregarEmprendimiento {
         this.urls = urls;
     }
 
+    public List<Long> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Long> tags) {
+        this.tags = tags;
+    }
+
     public Long getIdUsuario() {
         return idUsuario;
     }
@@ -79,6 +88,7 @@ public class AgregarEmprendimiento {
     public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
+
 }
 
 

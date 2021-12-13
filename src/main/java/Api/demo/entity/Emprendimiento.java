@@ -30,6 +30,12 @@ public class Emprendimiento{
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Usuario usuario;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "empredimiento_id",
+            joinColumns = @JoinColumn(name = "emprendimiento_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    private List<Tag> tags = new ArrayList<>();
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Evento> eventos = new ArrayList<>();
@@ -119,4 +125,18 @@ public class Emprendimiento{
     public void agregarEvento(Evento evento) {
         eventos.add(evento);
         evento.getEmprendimientos().add(this);}
+
+    public void agregarTag(Tag tag) {
+        tags.add(tag);
+        tag.getEmprendimientos().add(this);
+    }
+
+    public void removerTag(Tag tag) {
+        tags.remove(tag);
+        tag.getEmprendimientos().remove(null);
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
 }
