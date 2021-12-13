@@ -40,6 +40,7 @@ public class UsuarioController {
             List<Usuario> usuarios = usuarioRepository.findByFechaDeCreacionAfter(fechaDesde.atStartOfDay());
             return new ResponseEntity(usuarios, HttpStatus.OK);
         }
+
         return new ResponseEntity(usuarioRepository.findAll(), HttpStatus.OK);
     }
 }

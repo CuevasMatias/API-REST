@@ -6,7 +6,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +18,12 @@ public class Emprendimiento{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+    @NotEmpty(message = "El nombre no puede ser vacio")
     private String nombre;
+    @NotEmpty(message = "La descripcion no puede ser vacio")
     private String descripcion;
     private String contenido;
+    @NotNull(message = "El objetivo no puede ser vacio")
     private Double objetivo;
     private boolean publicado;
     private String urls;
