@@ -29,20 +29,14 @@ public class Evento {
     private EstadoEvento estado;
     @ManyToMany(mappedBy = "eventos")
     @JsonIgnoreProperties({"contenido","objetivo","publicado","tags","urls"})
-    @OrderBy("votesCount DESC")
     private List<Emprendimiento> emprendimientos = new ArrayList<>();
     @NotNull(message = "El premio no puede ser vacio")
     private Double premio;
 
-    public Evento(){
-    }
+    public Evento(){}
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNombre() {

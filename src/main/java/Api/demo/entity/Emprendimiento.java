@@ -1,6 +1,7 @@
 package Api.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -35,6 +36,7 @@ public class Emprendimiento{
             name = "empredimiento_id",
             joinColumns = @JoinColumn(name = "emprendimiento_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    @JsonIgnoreProperties({"id"})
     private List<Tag> tags = new ArrayList<>();
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -48,8 +50,13 @@ public class Emprendimiento{
 
     public Emprendimiento(){
     }
-    public Long getId () {
+
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre () {
