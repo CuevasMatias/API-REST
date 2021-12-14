@@ -36,7 +36,7 @@ public class Emprendimiento{
             joinColumns = @JoinColumn(name = "emprendimiento_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> tags = new ArrayList<>();
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Evento> eventos = new ArrayList<>();
     @CreationTimestamp

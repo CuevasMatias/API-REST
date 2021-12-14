@@ -30,7 +30,7 @@ public class EmprendimientoService {
 
     public Emprendimiento crearEmprendimiento(AgregarEmprendimiento agregarEmprendimiento) {
         Usuario usuario = usuarioRepository.findById(agregarEmprendimiento.getIdUsuario())
-                .orElseThrow(() -> new EntityNotFoundException("Usuario No Encontrado"));;
+                .orElseThrow(() -> new EntityNotFoundException("Usuario No Encontrado"));
         List<Tag> tags = tagRepository.findAllById(agregarEmprendimiento.getTags());
         Emprendimiento emprendimiento = new Emprendimiento();
         emprendimiento.setNombre(agregarEmprendimiento.getNombre());
@@ -40,6 +40,7 @@ public class EmprendimientoService {
         emprendimiento.setPublicado(agregarEmprendimiento.getPublicado());
         emprendimiento.setUrls(agregarEmprendimiento.getUrls());
         emprendimiento.setUsuario(usuario);
+        emprendimiento.getTags().addAll(tags);
 
         return emprendimientoRepository.save(emprendimiento);
     }

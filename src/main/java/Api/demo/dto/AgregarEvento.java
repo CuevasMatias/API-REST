@@ -1,19 +1,17 @@
-package Api.demo.entity;
+package Api.demo.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import Api.demo.entity.EstadoEvento;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.*;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-public class Evento {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class AgregarEvento {
+
     @NotEmpty(message = "El nombre no puede ser vacio")
     private String nombre;
     @NotEmpty(message = "La descripcion no puede ser vacio")
@@ -25,25 +23,11 @@ public class Evento {
     @NotNull(message = "Tiene que presentar fecha")
     private LocalDate fechaDeCierre;
     @NotNull
-    @Enumerated(EnumType.STRING)
     private EstadoEvento estado;
-    @ManyToMany(mappedBy = "eventos")
-    @JsonIgnoreProperties({"contenido","objetivo","publicado","tags","urls"})
-    @OrderBy("votesCount DESC")
-    private List<Emprendimiento> emprendimientos = new ArrayList<>();
+    private List<Long> emprendimiento;
+
     @NotNull(message = "El premio no puede ser vacio")
     private Double premio;
-
-    public Evento(){
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;
@@ -85,6 +69,7 @@ public class Evento {
         this.fechaDeCierre = fechaDeCierre;
     }
 
+
     public EstadoEvento getEstado() {
         return estado;
     }
@@ -92,18 +77,6 @@ public class Evento {
     public void setEstado(EstadoEvento estado) {
         this.estado = estado;
     }
-
-    public List<Emprendimiento> getEmprendimientos() {
-        return emprendimientos;
-    }
-
-    public void setEmprendimientos(List<Emprendimiento> emprendimientos) {
-        this.emprendimientos = emprendimientos;
-    }
-
-    public void agregarEmprendimientos(Emprendimiento emprendimiento){
-        emprendimientos.add(emprendimiento);
-        emprendimiento.getEventos().add(this);}
 
     public Double getPremio() {
         return premio;
@@ -113,18 +86,11 @@ public class Evento {
         this.premio = premio;
     }
 
-    @Override
-    public String toString() {
-        return "Evento{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", fechaDeAlta=" + fechaDeAlta +
-                ", fechaDeCurso=" + fechaDeCurso +
-                ", fechaDeCierre=" + fechaDeCierre +
-                ", estado=" + estado +
-                ", emprendimientos=" + emprendimientos +
-                ", premio=" + premio +
-                '}';
+    public List<Long> getEmprendimiento() {
+        return emprendimiento;
+    }
+
+    public void setEmprendimiento(List<Long> emprendimiento) {
+        this.emprendimiento = emprendimiento;
     }
 }
