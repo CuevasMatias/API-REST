@@ -1,9 +1,7 @@
 package Api.demo.dto;
 
-import javax.validation.constraints.NotEmpty;
-
 public class AgregarVoto {
-    @NotEmpty(message = "No puede ser vacio")
+
     private String generado;
     private Long idUsuario;
     private Long idEmprendimiento;

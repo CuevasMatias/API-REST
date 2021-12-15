@@ -6,12 +6,10 @@ import Api.demo.service.VotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Objects;
 
 @RestController
 @RequestMapping(value= "/voto")
@@ -23,8 +21,17 @@ public class VotoController {
     public VotoController(VotoService votoService) {
         this.votoService = votoService;
     }
+
     @PostMapping
     public ResponseEntity<?> crearVoto(@Valid @RequestBody AgregarVoto agregarVoto) {
-        return new ResponseEntity<>(votoService.crearVoto(agregarVoto), HttpStatus.CREATED);
+        if (Objects.nonNull(votoService.crearVoto(agregarVoto))) {
+            return new ResponseEntity<>(votoService.crearVoto(agregarVoto), HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+    @GetMapping
+    public ResponseEntity<?> getAllVotes(@RequestParam(name= "idUsuario", required = false) Long idUsuario) {
+        return new ResponseEntity<>(votoService.getVotos(idUsuario), HttpStatus.OK);
     }
 }

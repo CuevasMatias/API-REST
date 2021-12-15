@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 
 @Repository
-public interface EmprendimientoRepository extends JpaRepository<Emprendimiento, Long> {
+public interface EmprendimientoRepository extends JpaRepository < Emprendimiento, Long > {
     public abstract ArrayList<Emprendimiento> findByNombre (String nombre);
 }
