@@ -1,5 +1,6 @@
 package Api.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import net.bytebuddy.build.ToStringPlugin;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -75,7 +76,7 @@ public class Usuario {
     public String getPassword () {
         return password;
     }
-
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public void setPassword (String password){
         this.password = password;
     }

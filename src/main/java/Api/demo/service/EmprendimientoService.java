@@ -68,7 +68,6 @@ public class EmprendimientoService {
         emprendimiento1.setUrls(emprendimiento.getUrls());
         emprendimiento1.setObjetivo(emprendimiento.getObjetivo());
         emprendimiento1.setPublicado(emprendimiento.isPublicado());
-        emprendimiento1.setTags(emprendimiento.getTags());
         emprendimientoRepository.save(emprendimiento1);
 
         AgregarEmprendimiento agregarEmprendimiento = new AgregarEmprendimiento();
@@ -78,7 +77,6 @@ public class EmprendimientoService {
         agregarEmprendimiento.setObjetivo(emprendimiento1.getObjetivo());
         agregarEmprendimiento.setUrls(emprendimiento1.getUrls());
         agregarEmprendimiento.setPublicado(emprendimiento1.isPublicado());
-        agregarEmprendimiento.setTags(emprendimiento1.getTags());
         return agregarEmprendimiento;
     }
     public boolean eliminarEmprendimiento(Long id) {

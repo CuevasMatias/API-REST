@@ -1,5 +1,6 @@
 package Api.demo.dto;
 
+import Api.demo.entity.Tag;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotEmpty;
@@ -71,6 +72,10 @@ public class AgregarEmprendimiento {
 
     public void setUrls(String urls) {
         this.urls = urls;
+    }
+
+    public boolean isPublicado() {
+        return publicado;
     }
 
     public List<Long> getTags() {
