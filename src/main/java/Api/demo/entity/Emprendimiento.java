@@ -146,4 +146,7 @@ public class Emprendimiento{
     public List<Tag> getTags() {
         return tags;
     }
+
+    public void setTags(List<Tag> tags) {
+    }
 }

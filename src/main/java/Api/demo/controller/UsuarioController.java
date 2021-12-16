@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @RestController
@@ -54,7 +53,6 @@ public class UsuarioController {
             return "No se pudo eliminar el usuario con id" + id;
         }
     }
-
 }
 
 
