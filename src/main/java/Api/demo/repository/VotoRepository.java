@@ -8,8 +8,6 @@ import java.util.List;
 
 @Repository
 public interface VotoRepository extends JpaRepository<Voto, Long> {
-    
-    List<Voto> findByidUsuario(Long Usuario);
 
     List<Voto> findByIdUsuario(Long idUsuario);
 }

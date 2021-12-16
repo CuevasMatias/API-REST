@@ -16,8 +16,7 @@ public class Voto {
     private Long idUsuario;
     private Long idEmprendimiento;
     @CreationTimestamp
-    @Column(name = "fechaDeAlta")
-    private LocalDateTime createdDate;
+    private LocalDateTime fechaDeCreacion;
 
     public Long getId() {
         return id;
@@ -51,12 +50,12 @@ public class Voto {
         this.idEmprendimiento = idEmprendimiento;
     }
 
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
+    public LocalDateTime getFechaDeCreacion() {
+        return fechaDeCreacion;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
+    public void setFechaDeCreacion(LocalDateTime fechaDeCreacion) {
+        this.fechaDeCreacion = fechaDeCreacion;
     }
 
     @Override
@@ -66,7 +65,7 @@ public class Voto {
                 ", generado='" + generado + '\'' +
                 ", idUsuario=" + idUsuario +
                 ", idEmprendimiento=" + idEmprendimiento +
-                ", createdDate=" + createdDate +
+                ", fechaDeCreacion=" + fechaDeCreacion +
                 '}';
     }
 }

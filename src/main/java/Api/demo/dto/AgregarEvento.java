@@ -1,32 +1,19 @@
 package Api.demo.dto;
 
 import Api.demo.entity.EstadoEvento;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.ManyToMany;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 import java.util.List;
 
 public class AgregarEvento {
 
-    @NotEmpty(message = "El nombre no puede ser vacio")
     private String nombre;
-    @NotEmpty(message = "La descripcion no puede ser vacio")
     private String descripcion;
-    @NotNull(message = "Tiene que presentar fecha")
     private LocalDate fechaDeAlta;
-    @NotNull(message = "Tiene que presentar fecha")
     private LocalDate fechaDeCurso;
-    @NotNull(message = "Tiene que presentar fecha")
     private LocalDate fechaDeCierre;
-    @NotNull
     private EstadoEvento estado;
     private List<Long> emprendimiento;
-
-    @NotNull(message = "El premio no puede ser vacio")
     private Double premio;
 
     public String getNombre() {

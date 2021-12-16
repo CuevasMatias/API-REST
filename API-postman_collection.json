@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "e6e61be1-ac2e-45b1-89bb-0ab64b3dfe46",
+		"name": "API-Usuario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Obtener todos los usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Enzo\",\r\n    \"apellido\": \"Perez\",\r\n    \"email\": \"futbollball@gmail.com\",\r\n    \"password\": \"pelotapesada\",\r\n    \"ciudad\": \"Mendoza\",\r\n    \"provincia\": \"Mendoza\",\r\n    \"pais\": \"Argentina\",\r\n    \"usuario\": \"USUARIO\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerporFechaCreacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario?FechaDeCreacion=2021-12-16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							],
+							"query": [
+								{
+									"key": "FechaDeCreacion",
+									"value": "2021-12-16"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtenerporciudad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario?ciudad=barranqueras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							],
+							"query": [
+								{
+									"key": "ciudad",
+									"value": "barranqueras"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BorrarporId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Mateo Cesar\",\r\n    \"apellido\": \"Gonzalez\",\r\n    \"email\": \"mateo@gmail.com\",\r\n    \"password\": \"12345sssss\",\r\n    \"ciudad\": \"Vilelas\",\r\n    \"provincia\": \"Chaco\",\r\n    \"pais\": \"Argentina\",\r\n    \"usuario\": \"OWNER\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Emprendimientos",
+			"item": [
+				{
+					"name": "Obtener todos los emprendimientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearEmprendimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Pelota\",\r\n    \"descripcion\": \"Ultimate y nuevo tipo de diseño\",\r\n    \"contenido\": \"Dura varios partidos\",\r\n    \"objetivo\": \"5000\",\r\n    \"publicado\": true,\r\n    \"urls\":\"data:image/jpeg;ba56,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEA8PEBAQDxAPDw8PDw8PEBAPDw8PFREXFhUSFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisB\",\r\n    \"tags\":[4],\r\n    \"id_usuario\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObteneremprendimientosporTags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento?nombre=tecnologia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "tecnologia"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todos los emprendimientos no publicados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento/no_publicados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento",
+								"no_publicados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ModificarEmprendimiento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Celular Tactil\",\r\n    \"descripcion\": \"sssl\",\r\n    \"contenido\": \"Tecnologia\",\r\n    \"objetivo\": \"12000.0\",\r\n    \"publicado\": true,\r\n    \"urls\":\"data:image/jpeg;ba64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEA8PEBAQDxAPDw8PDw8PEBAPDw8PFREXFhUSFRUYHsB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarEmprendimiento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Eventos",
+			"item": [
+				{
+					"name": "Crear Evento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Evento Grande\",\r\n    \"descripcion\": \"Evento solidario para recaudar fondos\",\r\n    \"fechaDeAlta\": \"2021-12-14\",\r\n    \"fechaDeCurso\": \"2021-12-20\",\r\n    \"fechaDeCierre\": \"2021-12-30\",\r\n    \"estado\":\"ENCURSO\",\r\n    \"premio\": \"50000\",\r\n    \"emprendimiento\": [1,2,3]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/evento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"evento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Eventos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/evento/2/ranking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"evento",
+								"2",
+								"ranking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerEventos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/evento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"evento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ModificarEvento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Evento Gran Resistencia\",\r\n    \"descripcion\": \"Evento solidario para recaudar fondos\",\r\n    \"fechaDeAlta\": \"2021-12-14\",\r\n    \"fechaDeCurso\": \"2021-12-20\",\r\n    \"fechaDeCierre\": \"2021-12-30\",\r\n    \"estado\":\"ENCURSO\",\r\n    \"premio\": \"5000\",\r\n    \"emprendimiento\": [1,2]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/evento/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"evento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Voto",
+			"item": [
+				{
+					"name": "CrearVoto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"generado\": \"mobile\",\r\n    \"idUsuario\":\"4\",\r\n    \"idEmprendimiento\":\"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/votos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"votos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerVotosPorUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/votos/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"votos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

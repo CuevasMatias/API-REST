@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EventoService {
@@ -76,4 +77,10 @@ public class EventoService {
             return false;
         }
     }
+
+    public Optional<Evento> rankear(Long id) {
+        return eventoRepository.findById(id);
+    }
+
+    public List<Evento> obtenerEventos(){return eventoRepository.findAll();}
 }

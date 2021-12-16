@@ -29,6 +29,7 @@ public class Evento {
     private EstadoEvento estado;
     @ManyToMany(mappedBy = "eventos")
     @JsonIgnoreProperties({"contenido","objetivo","publicado","tags","urls"})
+    @OrderBy("contadorDeVotos DESC")
     private List<Emprendimiento> emprendimientos = new ArrayList<>();
     @NotNull(message = "El premio no puede ser vacio")
     private Double premio;

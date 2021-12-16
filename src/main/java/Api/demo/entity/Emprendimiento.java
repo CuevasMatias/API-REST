@@ -38,6 +38,10 @@ public class Emprendimiento{
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
     @JsonIgnoreProperties({"id"})
     private List<Tag> tags = new ArrayList<>();
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "idEmprendimiento", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Voto> votos = new ArrayList<Voto>();
+    private Integer contadorDeVotos = 0;
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Evento> eventos = new ArrayList<>();
@@ -123,8 +127,19 @@ public class Emprendimiento{
     public void setUsuario(Usuario usuario){
         this.usuario = usuario;}
 
-    public List<Evento> getEventos() {
-        return eventos;}
+    public List<Voto> getVotos() {
+        return votos;}
+
+    public void setVotos(List<Voto> votos) {
+        this.votos = votos;}
+
+    public Integer getContadorDeVotos() {
+        return contadorDeVotos;}
+
+    public void setContadorDeVotos(Integer contadorDeVotos) {
+        this.contadorDeVotos = contadorDeVotos;}
+
+    public List<Evento> getEventos() {return eventos;}
 
     public void setEventos(List<Evento> eventos) {
         this.eventos = eventos;}
@@ -135,16 +150,32 @@ public class Emprendimiento{
 
     public void agregarTag(Tag tag) {
         tags.add(tag);
-        tag.getEmprendimientos().add(this);
-    }
+        tag.getEmprendimientos().add(this);}
 
     public void removerTag(Tag tag) {
         tags.remove(tag);
-        tag.getEmprendimientos().remove(null);
-    }
+        tag.getEmprendimientos().remove(null);}
 
     public List<Tag> getTags() {
-        return tags;
-    }
+        return tags;}
 
+    @Override
+    public String toString() {
+        return "Emprendimiento{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", contenido='" + contenido + '\'' +
+                ", objetivo=" + objetivo +
+                ", publicado=" + publicado +
+                ", urls='" + urls + '\'' +
+                ", usuario=" + usuario +
+                ", tags=" + tags +
+                ", votos=" + votos +
+                ", contadorDeVotos=" + contadorDeVotos +
+                ", eventos=" + eventos +
+                ", createDate=" + createDate +
+                ", modifiedDate=" + modifiedDate +
+                '}';
+    }
 }

@@ -1,6 +1,5 @@
 package Api.demo.controller;
 
-import Api.demo.dto.AgregarEmprendimiento;
 import Api.demo.dto.AgregarVoto;
 import Api.demo.service.VotoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Objects;
 
 @RestController
-@RequestMapping(value= "/voto")
+@RequestMapping(value = "votos")
 public class VotoController {
-
     private final VotoService votoService;
 
     @Autowired
@@ -24,14 +21,12 @@ public class VotoController {
 
     @PostMapping
     public ResponseEntity<?> crearVoto(@Valid @RequestBody AgregarVoto agregarVoto) {
-        if (Objects.nonNull(votoService.crearVoto(agregarVoto))) {
-            return new ResponseEntity<>(votoService.crearVoto(agregarVoto), HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        return new ResponseEntity<>(votoService.crearVoto(agregarVoto), HttpStatus.CREATED);
     }
-    @GetMapping
-    public ResponseEntity<?> getAllVotes(@RequestParam(name= "idUsuario", required = false) Long idUsuario) {
-        return new ResponseEntity<>(votoService.getVotos(idUsuario), HttpStatus.OK);
+
+    @GetMapping(value = "/{usuarioId}")
+    public ResponseEntity<?> obtenerLosVotosDeUnUsuario(@PathVariable("usuarioId") Long usuarioId) {
+        return new ResponseEntity<>(votoService.obtenerVotos(usuarioId), HttpStatus.OK);
     }
 }
+
